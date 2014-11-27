@@ -7,11 +7,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>My AngularJS App</title>
-  <meta name="description" content="">
+  <meta name="description" content="Logical and nueral network">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="app.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 </head>
+<p>Logical and nueral network</p>
 <body>
  <div id="chart3"></div>
  <div id="angular" ng-controller="DoubleController">
@@ -30,19 +31,16 @@
   <button ng-click="edge(edgeValfrom,edgeValto);">EDGE</button>
  
   </div>
-   <div id="angular3" ng-controller="DataController">
-    Add node data to node: <input ng-model="node"> 
-     With Data: <input ng-model="data"> 
-
   
 
-  <button ng-click="addData(node,data);">ADD DATA</button>
- 
-  </div>
-  </div>
    <div id="angular4" ng-controller="TrainController">
-  <button ng-click="train();">TRAIN</button>
-   <p>The result is {{result}} </p>
+  
+  Input to node 1 :  <input ng-model="node1"> 
+      Input to node 2 :  <input ng-model="node2"> 
+      Target :  <input ng-model="target"> 
+        <p>The result is {{result}} </p>
+      <button ng-click="train(node1,node2,target);">TRAIN</button>
+ 
  
   </div>
   <!-- In production use:

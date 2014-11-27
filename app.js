@@ -7,9 +7,9 @@ var myApp = angular.module("myApp", []);
 	var nodeMatrix = [[]];
 	var edges = null;
 myApp.controller('TrainController', ['$scope','graphMatrix', function($scope,graphMatrix) {
-	 	$scope.result = 'thinking';
- 		$scope.train = function(value) {
- 			$scope.result =graphMatrix(value);
+	 	
+ 		$scope.train = function(msg1,msg2,myres) {
+ 			$scope.result =graphMatrix(msg1,msg2,myres);
  			
  			
 		};
@@ -95,7 +95,7 @@ myApp.factory('edgeAdd', ['$window', function(win) {
 
 myApp.factory('graphMatrix', ['$window', function(win) {
  
-    return function(msg1) {
+    return function(msg1,msg2,myres) {
     		
 			if(firstTime){
 				edges = G.edges();
@@ -112,8 +112,8 @@ myApp.factory('graphMatrix', ['$window', function(win) {
 			}
 			//construct edge list
 			nodeMatrix.shift();
-				nodeMatrix[0][1]=1;
-			nodeMatrix[1][1]=1
+				nodeMatrix[0][1]=msg1;
+			nodeMatrix[1][1]=msg2;
 
 				firstTime= false;
 			}
@@ -134,7 +134,9 @@ myApp.factory('graphMatrix', ['$window', function(win) {
 
 			//console.log(nodeMatrix[nodeMatrix.length-1][1]);
 			//backpropogation
-			var error =  nodeMatrix[nodeMatrix.length-1][1]*(1-nodeMatrix[nodeMatrix.length-1][1])*(1-nodeMatrix[nodeMatrix.length-1][1]);
+			var resultINt =parseInt(myres,10);
+			console.log("THIS SHOUDL BE INT", resultINt);
+			var error =  nodeMatrix[nodeMatrix.length-1][1]*(1-nodeMatrix[nodeMatrix.length-1][1])*(resultINt-nodeMatrix[nodeMatrix.length-1][1]);
 			console.log(error);
 			for(var i =0; i < nodeMatrix.length; i ++){
 				for (var j=0; j< edges.length; j++){

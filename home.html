@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Graham Casey Gibsons Homepage</h1>
+<p> contact: gcgibson@us.ibm.com </p>
+<p>I want to talk about a little algorithm my coworkers and I developed. It is a O(n) time algorithm to find whether or not A is a subset of B. It relies on a few simple steps.
+1) Let's say |B| = n , we need to first generate n prime numbers. This can be done in linear time using the sieve of Eratosthenes.
+2) We map each object in A and each object in B to a prime number. This can be done in linear time by first considering S = A \union B, uniqeifying S, and then mapping each element of S to a unique prime number
+3) We then take the product P(A) and P(B) defined by the product of all prime element mappings. 
+4) If P(B) mod P(A) = 0, then A is a subset of B, because only if all the factors in the denominator cancel with ones in the numerator will the result be a whole number implying that all the elements in A were also in B. We constructed the prime mapping so that each product P(A) and P(B) can be written uniquely as a product of elements</p>
+<a href="http://104.131.75.130:8080/index.html">Visit my angularjs and node js logical and neural network</a>
+
+</body>
+</html>
